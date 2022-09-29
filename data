@@ -1,0 +1,18 @@
+import os,cv2
+import numpy as np
+from PIL import Image
+path='/home/flychen59/Downloads/input_image/0001/'
+out_path='/home/flychen59/Downloads/input_image/00010/'
+for i in os.listdir(path):
+
+    img = cv2.imread(path+i)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    array = np.array(img)
+    colorl = [0, 0, 0]
+    for k in range(0,1920):
+        for j in range(890,1088):
+            array[j, k] = colorl
+
+
+    new_img = Image.fromarray(img)
+    new_img.save(out_path+i)
